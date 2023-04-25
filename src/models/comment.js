@@ -9,16 +9,10 @@ const schema = new mongoose.Schema(
     userMail: {
       type: String,
     },
-    comments: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-      },
-    ],
   },
   { timestamps: true }
 );
 
-const Tweet = mongoose.model("Tweet", schema);
+const Comment = mongoose.model("Comment", schema);
 
-module.exports = Tweet;
+module.exports = Comment;
