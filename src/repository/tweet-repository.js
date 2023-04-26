@@ -36,9 +36,10 @@ class TweetRepository {
     }
   }
 
-  async delete(id) {
+  //added pagination
+  async getAll(offset, limit) {
     try {
-      const tweet = await Tweet.findByIdAndRemove(id);
+      const tweet = await Tweet.find().skip(offset).limit(limit);
       return tweet;
     } catch (error) {
       console.log(error);

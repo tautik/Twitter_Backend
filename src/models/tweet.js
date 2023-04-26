@@ -6,9 +6,6 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    userMail: {
-      type: String,
-    },
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,
