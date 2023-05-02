@@ -1,5 +1,5 @@
 // Import necessary repositories
-const { TweetRespository, HashtagRepository } = require("../repository/index");
+import { TweetRespository, HashtagRepository } from "../repository/index";
 
 // Create a new TweetService class to handle tweet creation and hashtag association
 class TweetService {
@@ -48,8 +48,7 @@ class TweetService {
 }
 
 // Export the TweetService class
-module.exports = TweetService;
-
+export default TweetService;
 /*
     this is my #first #tweet . I am really #excited
 */

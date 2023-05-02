@@ -1,7 +1,4 @@
-const { TweetRepository } = require("./tweet-repository");
-const { HastagRepository } = require("./hastag-repository");
+import { TweetRepository } from "./tweet-repository";
+import { HastagRepository } from "./hastag-repository";
 
-module.exports = {
-  TweetRepository,
-  HastagRepository,
-};
+export { TweetRepository, HastagRepository };

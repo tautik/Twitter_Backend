@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-
-const hastagSchema = mongoose.Schema(
+import mongoose from "mongoose";
+const hashtagSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -16,6 +15,5 @@ const hastagSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Hastag = mongoose.model("Hastag", hastagSchema);
-
-module.exports = Hastag;
+const Hashtag = mongoose.model("Hashtag", hashtagSchema);
+export default Hashtag;
