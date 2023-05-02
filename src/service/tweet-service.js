@@ -1,11 +1,11 @@
 // Import necessary repositories
-import { TweetRespository, HashtagRepository } from "../repository/index";
+import { TweetRepository, HashtagRepository } from "../repository/index.js";
 
 // Create a new TweetService class to handle tweet creation and hashtag association
 class TweetService {
   constructor() {
     // Initialize instances of the repositories
-    this.tweetRepository = new TweetRespository();
+    this.tweetRepository = new TweetRepository();
     this.hashtagRepository = new HashtagRepository();
   }
 
@@ -14,7 +14,8 @@ class TweetService {
     const content = data.content;
     const tags = content
       .match(/#[a-zA-Z0-9_]+/g)
-      .map((tag) => tag.substring(1)); // Extract hashtags from tweet content
+      .map((tag) => tag.substring(1))
+      .map((tag) => tag.toLowerCase()); // this regex extracts hashtags // Extract hashtags from tweet content
 
     // Save the tweet to the database
     const tweet = await this.tweetRepository.create(data);

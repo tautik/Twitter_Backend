@@ -1,4 +1,4 @@
-import { TweetRepository } from "./tweet-repository";
-import { HastagRepository } from "./hastag-repository";
+import TweetRepository from "./tweet-repository.js";
+import HashtagRepository from "./hastag-repository.js";
 
-export { TweetRepository, HastagRepository };
+export { TweetRepository, HashtagRepository };

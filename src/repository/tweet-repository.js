@@ -1,5 +1,4 @@
-const Tweet = require("../models/tweet");
-import Tweet from "../models/tweet";
+import Tweet from "../models/tweet.js";
 
 class TweetRepository {
   async create(data) {
@@ -19,24 +18,26 @@ class TweetRepository {
       console.log(error);
     }
   }
+
   async getWithComments(id) {
     try {
-      const tweet = await Tweet.findById(id).populate({ path: "comments" });
+      const tweet = await Tweet.findById(id)
+        .populate({ path: "comments" })
+        .lean();
       return tweet;
     } catch (error) {
       console.log(error);
     }
   }
 
-  async update(id, data) {
+  async destroy(id) {
     try {
-      const tweet = await Tweet.findByIdAndUpdate(id, data, { new: true });
+      const tweet = await Tweet.findByIdAndRemove(id);
       return tweet;
     } catch (error) {
-      console.log("Error");
+      console.log(error);
     }
   }
-
   //added pagination
   async getAll(offset, limit) {
     try {
