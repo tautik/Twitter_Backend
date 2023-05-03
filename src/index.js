@@ -16,8 +16,6 @@ const startServer = async () => {
     console.log("server started");
     await connect();
     console.log("Mongo db connected");
-    // const tweetService = TweetService;
-    // const tweet = await this.TweetService.create({content:})
   });
 };
 startServer();
