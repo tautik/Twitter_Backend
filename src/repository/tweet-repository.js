@@ -8,14 +8,11 @@ class TweetRepository extends CrudRepository {
 
   async find(id) {
     try {
-      // Use Mongoose's populate function to retrieve the likes associated with the tweet
-      // The 'path' option specifies which field to populate - in this case, we want to populate the 'likes' field
+      //populate used--> shows all the detail, path:likes indicates show only path not all
       const tweet = await Tweet.findById(id).populate({ path: "likes" });
-
-      // Note: populate can only be used with Mongoose queries, not with the output of a query
-      // Therefore, we must use Mongoose's findById function to retrieve the tweet and then use populate on the returned query object
-
-      // Return the tweet with the populated likes field
+      //Tweet.findById(id).populate({ path: "likes" });--> mongooes query object where populate can be applied
+      //it returns in tweet--> it contains mongoose final output, here populate cant be applied
+      //populate is exclusive for mongodb/mongoose query object
       return tweet;
     } catch (error) {
       console.log(error);
@@ -25,7 +22,12 @@ class TweetRepository extends CrudRepository {
   async getWithComments(id) {
     try {
       const tweet = await Tweet.findById(id)
-        .populate({ path: "comments" })
+        .populate({
+          path: "comments",
+          populate: {
+            path: "comments",
+          },
+        })
         .lean();
       return tweet;
     } catch (error) {
