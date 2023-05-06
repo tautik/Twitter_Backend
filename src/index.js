@@ -13,7 +13,7 @@ const startServer = async () => {
   app.use("/api", apiRoutes);
 
   app.listen(3000, async () => {
-    console.log("server started");
+    console.log("server started at port 3000");
     await connect();
     console.log("Mongo db connected");
   });

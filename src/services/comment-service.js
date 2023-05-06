@@ -2,8 +2,8 @@ import { CommentRepository, TweetRepository } from "../repository/index.js";
 
 class CommentService {
   constructor() {
-    this.commentRepository = CommentRepository;
-    this.tweetRepository = TweetRepository;
+    this.commentRepository = new CommentRepository();
+    this.tweetRepository = new TweetRepository();
   }
 
   async create(modelId, modelType, userId, content) {
