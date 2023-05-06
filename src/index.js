@@ -4,7 +4,13 @@ import bodyParser from "body-parser";
 import { connect } from "./config/database.js";
 import apiRoutes from "./routes/index.js";
 
+import passport from "passport";
+import { passportAuth } from "./config/jwt-middleware.js";
+
 const app = express();
+
+app.use(passport.initialize());
+passportAuth(passport);
 
 const startServer = async () => {
   app.use(bodyParser.json());
