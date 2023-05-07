@@ -7,7 +7,8 @@ export const createComment = async (req, res) => {
     const response = await commentService.create(
       req.query.modelId,
       req.query.modelType,
-      req.body.userId,
+      req.user.id, //not passed from frontend, it is formed in authenticate middlewear from token
+      //when the token is authenticated
       req.body.content
     );
     return res.status(201).json({
