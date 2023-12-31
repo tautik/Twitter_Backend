@@ -1,14 +1,11 @@
 FROM node:latest
 
-WORKDIR /usr/src/app
+WORKDIR /usr/proj
 
-COPY package*.json ./
-COPY .env ./
+COPY package*.json .
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 3001
-
-CMD ["npm", "start"]
+CMD [ "npm","start" ]

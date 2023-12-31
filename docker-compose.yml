@@ -1,15 +1,19 @@
 version: "3"
+
 services:
-  any_name:
-    container_name: docker-node-mongo
+  mongo:
+    container_name: db_container
+    image: mongo
     restart: always
+
+  project:
     build: .
     ports:
       - "3001:3001"
-    link:
+    environment:
+      AWS_REGION: "ap-south-1"
+      ACCESS_KEY_ID: "AKIARGUHT2T43UB2NQHP"
+      AWS_SECRET_ACCESS_KEY: "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"
+      BUCKET_NAME: "twitterproj123"
+    depends_on:
       - mongo
-  random_container_name:
-    container_name: mongo
-    image: mongo
-    ports:
-      - "27017:27017"
