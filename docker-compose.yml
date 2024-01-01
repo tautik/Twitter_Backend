@@ -11,9 +11,9 @@ services:
     ports:
       - "3001:3001"
     environment:
-      AWS_REGION: "ap-south-1"
-      ACCESS_KEY_ID: "AKIARGUHT2T43UB2NQHP"
-      AWS_SECRET_ACCESS_KEY: "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"
-      BUCKET_NAME: "twitterproj123"
+      AWS_REGION: "AWS_REGION"
+      ACCESS_KEY_ID: "ACCESS_KEY_ID"
+      AWS_SECRET_ACCESS_KEY: "AWS_SECRET_ACCESS_KEY"
+      BUCKET_NAME: "BUCKET_NAME"
     depends_on:
       - mongo
